@@ -2,11 +2,47 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SocksMobile.Views.MainSocks"
+             xmlns:viewmodels="clr-namespace:SocksMobile.ViewModels">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.BindingContext>
+                <viewmodels:SocksViewModel/>
+            </StackLayout.BindingContext>
+            <Label Text="Api Coches"
+                   FontSize="45" TextColor="Blue"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Cargar coches" 
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding CargarProductos}"/>
+            <CarouselView ItemsSource="{Binding Products}">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical">
+                            <Label TextColor="PaleVioletRed"
+                                   Text="{Binding Product_name}"
+                                   FontSize="Large"/>
+                            <Label TextColor="Red"
+                                   Text="{Binding Product_description}"
+                                   FontSize="Large"/>
+                            <Label Text="{Binding Product_price}"
+                                   FontSize="Medium" TextColor="Fuchsia"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+<!--<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocksMobile.Views.MainSocks"
              xmlns:viewmodels="clr-namespace:SocksMobile.ViewModels"
              xmlns:local="clr-namespace:SocksMobile">
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding Source={x:Static local:App.ServiceLocator}, Path=SocksViewModel}">
-            <!--<Button Text="Cargar personajes"
+            <Button Text="Cargar personajes"
                     HorizontalOptions="FillAndExpand"
                     Command="{Binding CargarProductos}"/>
             <ListView ItemsSource="{Binding Products}">
@@ -23,7 +59,7 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>-->
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</ContentPage>-->

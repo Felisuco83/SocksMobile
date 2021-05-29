@@ -13,9 +13,10 @@ namespace SocksMobile.ViewModels
     {
         ServiceSocks serviceSocks;
 
-        public SocksViewModel(ServiceSocks service)
+        public SocksViewModel(/*ServiceSocks service*/)
         {
-            this.serviceSocks = service;
+            //this.serviceSocks = service;
+            this.serviceSocks = new ServiceSocks();
             this.LoadSocks();
         }
 

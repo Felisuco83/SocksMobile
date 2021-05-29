@@ -8,15 +8,15 @@ namespace SocksMobile
 {
     public partial class App : Application
     {
-        private static ServiceIoC _ServiceLocator;
-        public static ServiceIoC ServiceLocator
-        {
-            get
-            {
-                return _ServiceLocator = _ServiceLocator
-                    ?? new ServiceIoC();
-            }
-        }
+        //private static ServiceIoC _ServiceLocator;
+        //public static ServiceIoC ServiceLocator
+        //{
+        //    get
+        //    {
+        //        return _ServiceLocator = _ServiceLocator
+        //            ?? new ServiceIoC();
+        //    }
+        //}
 
         public App()
         {

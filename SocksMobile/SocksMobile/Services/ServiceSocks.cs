@@ -17,9 +17,9 @@ namespace SocksMobile.Services
         private Uri UriApi;
         private MediaTypeWithQualityHeaderValue Header;
 
-        public ServiceSocks(String url)
+        public ServiceSocks()
         {
-            this.UriApi = new Uri(url);
+            this.UriApi = new Uri("https://ecommercesocksapi.azurewebsites.net/");
             this.Header = new MediaTypeWithQualityHeaderValue("application/json");
         }
 
