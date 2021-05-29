@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocksMobile.Views.MainSocks"
+             xmlns:viewmodels="clr-namespace:SocksMobile.ViewModels"
+             xmlns:local="clr-namespace:SocksMobile">
+    <ContentPage.Content>
+        <StackLayout BindingContext="{Binding Source={x:Static local:App.ServiceLocator}, Path=SocksViewModel}">
+            <!--<Button Text="Cargar personajes"
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding CargarProductos}"/>
+            <ListView ItemsSource="{Binding Products}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Product_name}"/>
+                                <Label Text="{Binding Product_description}"
+                                       TextColor="Blue"/>
+                                <Label Text="{Binding Product_price}"
+                                       TextColor="Red"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

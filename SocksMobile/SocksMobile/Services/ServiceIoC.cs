@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 using SocksMobile.Models;
 using SocksMobile.Services;
+using SocksMobile.ViewModels;
 
-namespace XamarinBBDD.Services
+namespace SocksMobile.Services
 {
     public class ServiceIoC
     {
@@ -21,19 +22,19 @@ namespace XamarinBBDD.Services
             ContainerBuilder builder = new ContainerBuilder();
             //REGISTRAMOS TODAS LAS CLASES QUE TENGAN
             //INYECCION DE DEPENDENCIAS
-            builder.RegisterType<Ecommerce_socksService>();
-            //builder.RegisterType<SocksViewModel>();
+            builder.RegisterType<SocksViewModel>();
+            builder.RegisterType<ServiceSocks>();
             //CREAMOS EL CONTENEDOR
             this.container = builder.Build();
         }
 
-        //public SocksViewModel PersonajesViewModel
-        //{
-        //    get
-        //    {
-        //        return
-        //            this.container.Resolve<SocksViewModel>();
-        //    }
-        //}
+        public SocksViewModel SocksViewModel
+        {
+            get
+            {
+                return
+                    this.container.Resolve<SocksViewModel>();
+            }
+        }
     }
 }

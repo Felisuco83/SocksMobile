@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace SocksMobile.Services
 {
-    public class Ecommerce_socksService
+    public class ServiceSocks
     {
 
         private Uri UriApi;
         private MediaTypeWithQualityHeaderValue Header;
 
-        public Ecommerce_socksService(String url)
+        public ServiceSocks(String url)
         {
             this.UriApi = new Uri(url);
             this.Header = new MediaTypeWithQualityHeaderValue("application/json");
