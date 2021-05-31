@@ -23,7 +23,7 @@ namespace SocksMobile
             InitializeComponent();
 
             //MainPage = new MainPage();
-            MainPage = new MainSocks();
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()

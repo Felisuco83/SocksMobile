@@ -41,6 +41,8 @@ namespace SocksMobile.Models {
         [ForeignKey("Product_collection")]
         public virtual Collections Collection { get; set; }
 
+        public string image { get; set; }
+
 
         public Product () { }
 

@@ -39,6 +39,8 @@ namespace SocksMobile.Models {
         [Column("Subcategory_name")]
         public String Subcategory_name { get; set; }
 
+        public String image { get; set; }
+
         public Product_Complete () {}
 
         public Product_Complete (int product_id, string product_name, string product_description, 

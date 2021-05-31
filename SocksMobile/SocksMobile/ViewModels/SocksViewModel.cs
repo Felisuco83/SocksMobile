@@ -6,6 +6,9 @@ using System.Collections.ObjectModel;
 using System.Text;
 using Xamarin.Forms;
 using SocksMobile.Base;
+using System.Linq;
+using SocksMobile.Views;
+using Xamarin.Forms;
 
 namespace SocksMobile.ViewModels
 {
@@ -22,13 +25,19 @@ namespace SocksMobile.ViewModels
 
         public async void LoadSocks()
         {
-            List<Product> lista = await this.serviceSocks.GetProductsAsync();
+            List<Product_Complete> lista = await this.serviceSocks.GetProductCompleteAsync();
+            foreach(Product_Complete product in lista){
+                product.image = "https://ecommercesocksstorage.blob.core.windows.net/socks-blobs-container/Product_" + product.Product_id + ".jpg";
+            }
             this.Products =
-                new ObservableCollection<Product>(lista);
+                new ObservableCollection<Product_Complete>(lista);
+            var rnd = new Random();
+            this.ProductsSublist =
+                new ObservableCollection<Product_Complete>(lista.OrderBy(x => rnd.Next()).Take(9));
         }
 
-        private ObservableCollection<Product> _Products;
-        public ObservableCollection<Product> Products
+        private ObservableCollection<Product_Complete> _Products;
+        public ObservableCollection<Product_Complete> Products
         {
             get { return this._Products; }
             set
@@ -37,6 +46,17 @@ namespace SocksMobile.ViewModels
                 OnPropertyChanged("Products");
             }
         }
+
+        private ObservableCollection<Product_Complete> _ProductsSublist;
+        public ObservableCollection<Product_Complete> ProductsSublist {
+            get { return this._ProductsSublist; }
+            set {
+                this._ProductsSublist = value;
+                OnPropertyChanged("ProductsSublist");
+            }
+        }
+
+
 
         //public Command Edicion
         //{
@@ -49,7 +69,7 @@ namespace SocksMobile.ViewModels
         //    }
         //}
 
-        public Command CargarProductos
+        /*public Command CargarProductos
         {
             get
             {
@@ -57,10 +77,10 @@ namespace SocksMobile.ViewModels
                     List<Product> lista =
                     await this.serviceSocks.GetProductsAsync();
                     this.Products =
-                    new ObservableCollection<Product>(lista);
+                    new ObservableCollection<Product_Complete>(lista);
                 });
             }
-        }
+        }*/
 
     }
 }

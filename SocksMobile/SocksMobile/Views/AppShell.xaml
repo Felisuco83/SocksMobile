@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SocksMobile.Views.AppShell"
+    Shell.NavBarIsVisible="False"
+    xmlns:views="clr-namespace:SocksMobile.Views">
+
+    <TabBar>
+        <Tab Title="Home" Icon="home">
+            <ShellContent ContentTemplate="{DataTemplate views:MainSocks}"/>
+        </Tab>
+        <Tab Title="Categories" Icon="categories">
+            <ShellContent ContentTemplate="{DataTemplate views:Categories}"/>
+        </Tab>
+        <Tab Title="Cart" Icon="cart">
+            <ShellContent ContentTemplate="{DataTemplate views:cart}"/>
+        </Tab>
+        <Tab Title="Profile" Icon="user">
+            <ShellContent ContentTemplate="{DataTemplate views:user}"/>
+        </Tab>
+    </TabBar>
+
+</Shell>
