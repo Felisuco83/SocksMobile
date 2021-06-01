@@ -82,5 +82,25 @@ namespace SocksMobile.ViewModels
             }
         }*/
 
+        public Command SocksDetails
+        {
+            get
+            {
+
+                return new Command((socks) =>
+                {
+                    //RECIBIMOS LOS CALCETINES Y LO MANDAMOS A 
+                    //OTRA VISTA/VIEWMODEL
+                    //CREAMOS EL VIEWMODEL 
+                    SocksDetailsViewModel viewmodel = App.ServiceLocator.SocksDetailsViewModel;
+                    //CREAMOS LA VISTA
+                    DetalleProductos view = new DetalleProductos();
+                    view.BindingContext = viewmodel;
+                    viewmodel.Product = socks as Product_Complete;
+                    Application.Current.MainPage.Navigation.PushModalAsync
+                    (view);
+                });
+            }
+        }
     }
 }
