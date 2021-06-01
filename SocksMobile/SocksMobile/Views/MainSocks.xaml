@@ -15,7 +15,7 @@
 
             <RelativeLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
                 <Image Source="https://ecommercesocksstorage.blob.core.windows.net/socks-blobs-container/LoginBackground.jpg" 
-                  Aspect="Fill" HorizontalOptions="Center" HeightRequest="300"/>
+                  Aspect="Fill" HorizontalOptions="Center" HeightRequest="{OnPlatform 300, iOS=400, Android=300}"/>
                 <StackLayout TranslationY="40" Padding="20,5,10,5">
                     <Label TextColor="White" Text="LET YOUR SOCKS SHINE" FontAttributes="Bold"  WidthRequest="250"
                            FontSize="40" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
@@ -37,6 +37,7 @@
             </Grid>
 
             <Grid Grid.Row="2" RowSpacing="20" Margin="30,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                  x:Name="socksgrid"
                   BindingContext="{Binding Source={x:Static local:App.ServiceLocator}, Path=SocksViewModel}">
                 <ScrollView Orientation="Horizontal" VerticalOptions="Start" VerticalScrollBarVisibility="Never" 
                             HorizontalScrollBarVisibility="Never">
@@ -46,8 +47,10 @@
                                 <StackLayout VerticalOptions="Start">
                                     <Frame Padding="0" HasShadow="False"  HorizontalOptions="Start" VerticalOptions="Start" 
                                            CornerRadius="10" HeightRequest="150" WidthRequest="150">
-                                        <Image Source="{Binding image}" 
-                                               Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                        <ImageButton Source="{Binding image}"
+                                                   Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                                     CommandParameter="{Binding .}" Command="{Binding BindingContext.SocksDetails
+                                                    , Source={x:Reference socksgrid}}"/>
                                     </Frame>
                                     <Label Text="{Binding Product_name}" TextColor="Black" FontSize="16" 
                                            LineBreakMode="MiddleTruncation" WidthRequest="50" Margin="0,5,0,0"/>
@@ -55,6 +58,10 @@
                                            LineBreakMode="MiddleTruncation" WidthRequest="50" Margin="0,-7,0,0" />
                                     <Label Text="{Binding Product_price, StringFormat='{0} $'}" Margin="0,-7,0,0" 
                                            TextColor="#f05366" FontSize="14"/>
+                                    <!--<Button HorizontalOptions="End"
+                                        CommandParameter="{Binding .}" Text="Details"
+                                        Command="{Binding BindingContext.SocksDetails
+                                        , Source={x:Reference socksgrid}}"/>-->
                                 </StackLayout>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>

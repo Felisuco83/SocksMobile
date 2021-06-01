@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -92,7 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SocksMobile\SocksMobile.csproj">
-      <Project>{219FB503-A287-4B2B-A683-5ADB1B937F0F}</Project>
+      <Project>{CA9D1FD7-EDA9-4FA4-B233-BCB550EB4794}</Project>
       <Name>SocksMobile</Name>
     </ProjectReference>
   </ItemGroup>

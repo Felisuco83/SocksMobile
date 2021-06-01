@@ -24,7 +24,10 @@ namespace SocksMobile.Services
             //INYECCION DE DEPENDENCIAS
             builder.RegisterType<SocksViewModel>();
             builder.RegisterType<SocksDetailsViewModel>();
+<<<<<<< HEAD
             builder.RegisterType<ProfileViewModel>();
+=======
+>>>>>>> fb9bd38aadb059309ad91896593ae0952fa1208c
             builder.RegisterType<ServiceSocks>();
             //CREAMOS EL CONTENEDOR
             this.container = builder.Build();
@@ -38,6 +41,10 @@ namespace SocksMobile.Services
                     this.container.Resolve<SocksViewModel>();
             }
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> fb9bd38aadb059309ad91896593ae0952fa1208c
         public SocksDetailsViewModel SocksDetailsViewModel
         {
             get
@@ -46,6 +53,7 @@ namespace SocksMobile.Services
                     this.container.Resolve<SocksDetailsViewModel>();
             }
         }
+<<<<<<< HEAD
         public ProfileViewModel ProfileViewModel
         {
             get
@@ -53,5 +61,7 @@ namespace SocksMobile.Services
                 return this.container.Resolve<ProfileViewModel>();
             }
         }
+=======
+>>>>>>> fb9bd38aadb059309ad91896593ae0952fa1208c
     }
 }

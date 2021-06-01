@@ -3,7 +3,49 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="SocksMobile.Views.Categories">
-    <ContentPage.Content>
-        <Label Text="categories"/>
-    </ContentPage.Content>
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
+          Margin="20,20,20,20">
+         <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+         </Grid.RowDefinitions>
+
+        <RelativeLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+            <ImageButton Source="https://ecommercesocksstorage.blob.core.windows.net/socks-blobs-container/men-banner.jpg" 
+                  Aspect="Fill" HorizontalOptions="Center"/>
+            <StackLayout TranslationY="40" Padding="0,5,10,5">
+                    <Label TextColor="White" Text="MENS" FontAttributes="Bold"  WidthRequest="250"
+                           FontSize="40" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </RelativeLayout>
+
+        <RelativeLayout Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+            <ImageButton Source="https://ecommercesocksstorage.blob.core.windows.net/socks-blobs-container/women-banner.jpg" 
+                  Aspect="Fill" HorizontalOptions="Center"/>
+            <StackLayout TranslationY="40" Padding="0,5,10,5">
+                    <Label TextColor="White" Text="WOMENS" FontAttributes="Bold"  WidthRequest="250"
+                           FontSize="40" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </RelativeLayout>
+
+        <RelativeLayout Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+            <ImageButton Source="https://ecommercesocksstorage.blob.core.windows.net/socks-blobs-container/kids_banner.jpg" 
+                  Aspect="Fill" HorizontalOptions="Center"/>
+            <StackLayout TranslationY="40" Padding="0,5,10,5">
+                    <Label TextColor="White" Text="KIDS" FontAttributes="Bold"  WidthRequest="250"
+                           FontSize="40" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </RelativeLayout>
+
+        <RelativeLayout Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+            <ImageButton Source="https://ecommercesocksstorage.blob.core.windows.net/socks-blobs-container/packs_banner.png" 
+                  Aspect="Fill" HorizontalOptions="Center"/>
+            <StackLayout TranslationY="40" TranslationX="120" Padding="0,5,10,5">
+                    <Label TextColor="White" Text="PACKS" FontAttributes="Bold"  WidthRequest="250"
+                           FontSize="40" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </RelativeLayout>
+    </Grid>
 </ContentPage>

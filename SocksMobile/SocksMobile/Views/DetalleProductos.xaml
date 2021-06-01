@@ -4,9 +4,33 @@
              x:Class="SocksMobile.Views.DetalleProductos">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="DetalleProductos"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <Image  Source="{Binding Product.image}" Aspect="Fill" HorizontalOptions="Center" VerticalOptions="Start"/>
+            <Label Text="{Binding Product.Ca}" TextColor="Black" FontSize="16" HorizontalOptions="Center"/>
+            <Label Text="{Binding Product.Subcategory_name}" TextColor="Black" FontSize="16" HorizontalOptions="Center"/>
+            <Label Text="{Binding Product.Product_style}" TextColor="Black" FontSize="16" HorizontalOptions="Center"/>
+            <Label Text="{Binding Product.Product_name}" TextColor="Black" FontSize="16" HorizontalOptions="Center"/>
+            <Label Text="{Binding Product.Product_print}" TextColor="Gray" FontSize="14" HorizontalOptions="Center"/>
+            <Label Text="{Binding Product.Product_price, StringFormat='{0} $'}" HorizontalOptions="Center" TextColor="#f05366" FontSize="14"/>
+            <Label Text="{Binding Product.Product_description}" TextColor="Black" FontSize="16" HorizontalOptions="FillAndExpand" Margin="5,5,0,0"/>
         </StackLayout>
     </ContentPage.Content>
+    <!--<Grid>
+        <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    <Image Grid.Column="1" Source="{Binding Product.image}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+    <Label Grid.Column="2" Grid.Row="2" Text="{Binding Product.Product_name}" TextColor="Black" FontSize="16" 
+                                           LineBreakMode="MiddleTruncation" WidthRequest="50" Margin="0,5,0,0"/>
+    <Label Grid.Column="3" Text="{Binding Product.Product_print}" TextColor="Gray" FontSize="14" 
+                                           LineBreakMode="MiddleTruncation" WidthRequest="50" Margin="0,-7,0,0" />
+    <Label Grid.Column="4" Text="{Binding Product.Product_price, StringFormat='{0} $'}" Margin="0,-7,0,0" 
+                                           TextColor="#f05366" FontSize="14"/>
+    </Grid>-->
 </ContentPage>
