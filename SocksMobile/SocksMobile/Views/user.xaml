@@ -1,8 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SocksMobile.Views.user">
-    <ContentPage.Content>
-        <Label Text="user"/>
-    </ContentPage.Content>
+             x:Class="SocksMobile.Views.user"
+             xmlns:viewmodels="clr-namespace:SocksMobile.ViewModels"
+             xmlns:local="clr-namespace:SocksMobile"
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator}, Path=ProfileViewModel}">
+
+    <ContentPage.Resources>
+        <viewmodels:ProfileViewModel x:Key="viewModelProfile"/>
+    </ContentPage.Resources>
+    
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid  HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" 
+               BindingContext="{StaticResource viewModelProfile}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <RelativeLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                <Image Source="https://ecommercesocksstorage.blob.core.windows.net/socks-blobs-container/bannerImage.jpg" 
+                  Aspect="AspectFill" HorizontalOptions="Center" HeightRequest="250"/>
+                <StackLayout TranslationY="200" Padding="10,-15,0,0">
+                    <Frame CornerRadius="100"
+                           HeightRequest="120"
+                           WidthRequest="120"
+                           HorizontalOptions="Center"
+                           Padding="0"
+                           IsClippedToBounds="True">
+                        <Image Source="https://nanocohybri.inc.uam.es/wp-content/uploads/2017/11/icon-user-default.png"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Frame>
+                </StackLayout>
+                <StackLayout TranslationY="200" Padding="150,15,10,5">
+                    <StackLayout.BindingContext>
+                        <viewmodels:ProfileViewModel/>
+                    </StackLayout.BindingContext>
+                    <Label Text="{Binding User.Users_name}" TextColor="White" FontSize="25" BackgroundColor="Green"/>
+                    <Label Text="{Binding Name}" TextColor="Black" FontSize="25"/>
+                    <Label Text="{Binding Users_name}" TextColor="Black" FontSize="25"/>
+                </StackLayout>
+                <StackLayout TranslationY="200" Padding="150,15,10,5">
+                    <Label Text="{Binding Users_email}" TextColor="White" FontSize="25"/>
+                </StackLayout>
+            </RelativeLayout>
+
+            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Text="NEW ARRIVALS" VerticalOptions="Center" Margin="20, 10, 0, 0" TextColor="Black"
+                       FontSize="18"/>
+                <Button Grid.Column="1" Text="VIEW ALL" Background="white" TextColor="#6270b1" HorizontalOptions="End" 
+                        Margin="0, 10, 20, 0"/>
+            </Grid>
+
+            <Grid Grid.Row="2" RowSpacing="20" Margin="30,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                <ScrollView Orientation="Horizontal" VerticalOptions="Start" VerticalScrollBarVisibility="Never" 
+                            HorizontalScrollBarVisibility="Never">
+                    <StackLayout BindableLayout.ItemsSource="{Binding ProductsSublist}" Orientation="Horizontal" Spacing="20" VerticalOptions="Start">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout VerticalOptions="Start">
+                                    <Frame Padding="0" HasShadow="False"  HorizontalOptions="Start" VerticalOptions="Start" 
+                                           CornerRadius="10" HeightRequest="150" WidthRequest="150">
+                                        <Image Source="{Binding image}" 
+                                               Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    </Frame>
+                                    <Label Text="{Binding Product_name}" TextColor="Black" FontSize="16" 
+                                           LineBreakMode="MiddleTruncation" WidthRequest="50" Margin="0,5,0,0"/>
+                                    <Label Text="{Binding Product_print}" TextColor="Gray" FontSize="14" 
+                                           LineBreakMode="MiddleTruncation" WidthRequest="50" Margin="0,-7,0,0" />
+                                    <Label Text="{Binding Product_price, StringFormat='{0} $'}" Margin="0,-7,0,0" 
+                                           TextColor="#f05366" FontSize="14"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </Grid>
+    </ScrollView>
+
 </ContentPage>

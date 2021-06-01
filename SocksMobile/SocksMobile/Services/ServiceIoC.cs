@@ -23,6 +23,8 @@ namespace SocksMobile.Services
             //REGISTRAMOS TODAS LAS CLASES QUE TENGAN
             //INYECCION DE DEPENDENCIAS
             builder.RegisterType<SocksViewModel>();
+            builder.RegisterType<SocksDetailsViewModel>();
+            builder.RegisterType<ProfileViewModel>();
             builder.RegisterType<ServiceSocks>();
             //CREAMOS EL CONTENEDOR
             this.container = builder.Build();
@@ -34,6 +36,21 @@ namespace SocksMobile.Services
             {
                 return
                     this.container.Resolve<SocksViewModel>();
+            }
+        }
+        public SocksDetailsViewModel SocksDetailsViewModel
+        {
+            get
+            {
+                return
+                    this.container.Resolve<SocksDetailsViewModel>();
+            }
+        }
+        public ProfileViewModel ProfileViewModel
+        {
+            get
+            {
+                return this.container.Resolve<ProfileViewModel>();
             }
         }
     }
