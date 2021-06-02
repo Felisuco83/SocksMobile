@@ -38,7 +38,7 @@
                     <StackLayout.BindingContext>
                         <viewmodels:ProfileViewModel/>
                     </StackLayout.BindingContext>
-                    <Label Text="{Binding User.Users_name}" TextColor="White" FontSize="25" BackgroundColor="Green"/>
+                    <Label Text="{Binding User.Users_name}" TextColor="Black" FontSize="25"/>
                     <Label Text="{Binding Name}" TextColor="Black" FontSize="25"/>
                     <Label Text="{Binding Users_name}" TextColor="Black" FontSize="25"/>
                 </StackLayout>

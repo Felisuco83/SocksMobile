@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SocksMobile.ViewModels
 {
@@ -19,9 +20,12 @@ namespace SocksMobile.ViewModels
         public ProfileViewModel()
         {
             this.ServiceSocks = new ServiceSocks();
-            this.CargarUsuario();
-            this.CargarNombre();
-            this.LoadSocks();
+            Task.Run(async () =>
+            {
+                await this.CargarUsuario();
+                //await this.CargarNombre();
+                await this.LoadSocks();
+            });
         }
 
 
@@ -56,11 +60,11 @@ namespace SocksMobile.ViewModels
                 return name;
             }
         }
-        public async void CargarNombre()
+        public async Task CargarNombre()
         {
             this.Name = "Pepito Palotes";
         }
-        public async void CargarNombreUser()
+        public async Task CargarNombreUser()
         {
             this.User.Users_name = "Pedro almendros";
         }
@@ -88,18 +92,19 @@ namespace SocksMobile.ViewModels
         }
 
         //METODOS
-        public async void CargarUsuario()
+        public async Task CargarUsuario()
         {
             if (User == null)
             {
                 Users usuaio = await this.ServiceSocks.GetUserAsync(iduser);
                 this.User = usuaio;
                 this.User.Users_name = "Juan Bou";
+                this.Name = "Pepito Palotes";
             }
         }
 
 
-        public async void LoadSocks()
+        public async Task LoadSocks()
         {
             List<Favorite> favorites = await this.ServiceSocks.GetUserFavoritesAsync(iduser);
             List<int> idFavorites = favorites.Select(x => x.Favorite_id).ToList();
