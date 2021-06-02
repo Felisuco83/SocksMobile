@@ -60,14 +60,30 @@ namespace SocksMobile.ViewModels
                 return name;
             }
         }
-        public async Task CargarNombre()
+        private String apellido;
+        public string Apellido
         {
-            this.Name = "Pepito Palotes";
+            private set
+            {
+                if (apellido != value)
+                {
+                    apellido = value;
+                    OnPropertyChanged("Apellido");
+                }
+            }
+            get
+            {
+                return apellido;
+            }
         }
-        public async Task CargarNombreUser()
-        {
-            this.User.Users_name = "Pedro almendros";
-        }
+        //public async Task CargarNombre()
+        //{
+        //    this.Name = "Pepito Palotes";
+        //}
+        //public async Task CargarNombreUser()
+        //{
+        //    this.User.Users_name = "Pedro almendros";
+        //}
 
         private ObservableCollection<Product_Complete> _Products;
         public ObservableCollection<Product_Complete> Products
@@ -96,10 +112,10 @@ namespace SocksMobile.ViewModels
         {
             if (User == null)
             {
-                Users usuaio = await this.ServiceSocks.GetUserAsync(iduser);
-                this.User = usuaio;
-                this.User.Users_name = "Juan Bou";
-                this.Name = "Pepito Palotes";
+                Users usuario = await this.ServiceSocks.GetUserAsync(iduser);
+                this.User = usuario;
+                this.Name = usuario.Users_name;
+                this.Apellido = usuario.Users_lastName;
             }
         }
 
