@@ -29,7 +29,9 @@
                            HorizontalOptions="Center"
                            Padding="0"
                            IsClippedToBounds="True">
-                        <Image Source="https://nanocohybri.inc.uam.es/wp-content/uploads/2017/11/icon-user-default.png"
+                        <Image Source="https://w7.pngwing.com/pngs/122/453/png-transparent-computer-icons-user-profile-avatar-female-profile-heroes-head-woman.png"
+                               Aspect="AspectFill"
+                               HeightRequest="250"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
                     </Frame>
@@ -38,9 +40,9 @@
                     <StackLayout.BindingContext>
                         <viewmodels:ProfileViewModel/>
                     </StackLayout.BindingContext>
-                    <Label Text="{Binding User.Users_name}" TextColor="Black" FontSize="25"/>
-                    <Label Text="{Binding Name}" TextColor="Black" FontSize="25"/>
-                    <Label Text="{Binding Users_name}" TextColor="Black" FontSize="25"/>
+                    <!--<Label Text="{Binding User.Users_name}" TextColor="Black" FontSize="25"/>-->
+                    <Label Text="{Binding Name}" TextColor="Wheat" FontSize="25"/>
+                    <Label Text="{Binding Apellido}" TextColor="DarkBlue" FontSize="25"/>
                 </StackLayout>
                 <StackLayout TranslationY="200" Padding="150,15,10,5">
                     <Label Text="{Binding Users_email}" TextColor="White" FontSize="25"/>
