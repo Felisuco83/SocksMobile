@@ -9,6 +9,7 @@ using SocksMobile.Base;
 using System.Linq;
 using SocksMobile.Views;
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace SocksMobile.ViewModels
 {
@@ -16,10 +17,9 @@ namespace SocksMobile.ViewModels
     {
         ServiceSocks serviceSocks;
 
-        public SocksViewModel(/*ServiceSocks service*/)
+        public SocksViewModel(ServiceSocks service)
         {
-            //this.serviceSocks = service;
-            this.serviceSocks = new ServiceSocks();
+            this.serviceSocks = service;
             this.LoadSocks();
         }
 

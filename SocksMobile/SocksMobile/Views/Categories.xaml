@@ -2,9 +2,11 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="SocksMobile.Views.Categories">
-    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
-          Margin="20,20,20,20">
+    x:Class="SocksMobile.Views.Categories"
+    xmlns:viewmodels="clr-namespace:SocksMobile.ViewModels"
+             xmlns:local="clr-namespace:SocksMobile">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" x:Name="categoriesgrid"
+          Margin="20,20,20,20" BindingContext="{Binding Source={x:Static local:App.ServiceLocator}, Path=CategoriesViewModel}">
          <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -14,25 +16,28 @@
 
         <RelativeLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
             <ImageButton Source="https://ecommercesocksstorage.blob.core.windows.net/socks-blobs-container/men-banner.jpg" 
-                  Aspect="Fill" HorizontalOptions="Center"/>
+                  Aspect="Fill" HorizontalOptions="Center" CommandParameter="1" Command="{Binding BindingContext.ViewCategory
+                , Source={x:Reference categoriesgrid}}"/>
             <StackLayout TranslationY="40" Padding="0,5,10,5">
-                    <Label TextColor="White" Text="MENS" FontAttributes="Bold"  WidthRequest="250"
+                    <Label TextColor="White" Text="MEN" FontAttributes="Bold"  WidthRequest="250"
                            FontSize="40" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
             </StackLayout>
         </RelativeLayout>
 
         <RelativeLayout Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
             <ImageButton Source="https://ecommercesocksstorage.blob.core.windows.net/socks-blobs-container/women-banner.jpg" 
-                  Aspect="Fill" HorizontalOptions="Center"/>
+                  Aspect="Fill" HorizontalOptions="Center" CommandParameter="2" Command="{Binding BindingContext.ViewCategory
+                , Source={x:Reference categoriesgrid}}" />
             <StackLayout TranslationY="40" Padding="0,5,10,5">
-                    <Label TextColor="White" Text="WOMENS" FontAttributes="Bold"  WidthRequest="250"
+                    <Label TextColor="White" Text="WOMEN" FontAttributes="Bold"  WidthRequest="250"
                            FontSize="40" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
             </StackLayout>
         </RelativeLayout>
 
         <RelativeLayout Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
             <ImageButton Source="https://ecommercesocksstorage.blob.core.windows.net/socks-blobs-container/kids_banner.jpg" 
-                  Aspect="Fill" HorizontalOptions="Center"/>
+                  Aspect="Fill" HorizontalOptions="Center" CommandParameter="3" Command="{Binding BindingContext.ViewCategory
+                , Source={x:Reference categoriesgrid}}"/>
             <StackLayout TranslationY="40" Padding="0,5,10,5">
                     <Label TextColor="White" Text="KIDS" FontAttributes="Bold"  WidthRequest="250"
                            FontSize="40" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
@@ -41,7 +46,8 @@
 
         <RelativeLayout Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
             <ImageButton Source="https://ecommercesocksstorage.blob.core.windows.net/socks-blobs-container/packs_banner.png" 
-                  Aspect="Fill" HorizontalOptions="Center"/>
+                  Aspect="Fill" HorizontalOptions="Center" CommandParameter="4" Command="{Binding BindingContext.ViewCategory
+                , Source={x:Reference categoriesgrid}}"/>
             <StackLayout TranslationY="40" TranslationX="120" Padding="0,5,10,5">
                     <Label TextColor="White" Text="PACKS" FontAttributes="Bold"  WidthRequest="250"
                            FontSize="40" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>

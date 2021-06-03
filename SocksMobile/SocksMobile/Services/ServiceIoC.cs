@@ -25,6 +25,8 @@ namespace SocksMobile.Services
             builder.RegisterType<SocksViewModel>();
             builder.RegisterType<SocksDetailsViewModel>();
             builder.RegisterType<ProfileViewModel>();
+            builder.RegisterType<CategoryViewModel>();
+            builder.RegisterType<CategoriesViewModel>();
             builder.RegisterType<ServiceSocks>();
             //CREAMOS EL CONTENEDOR
             this.container = builder.Build();
@@ -51,6 +53,22 @@ namespace SocksMobile.Services
             get
             {
                 return this.container.Resolve<ProfileViewModel>();
+            }
+        }
+
+        public CategoriesViewModel CategoriesViewModel
+        {
+            get
+            {
+                return this.container.Resolve<CategoriesViewModel>();
+            }
+        }
+
+        public CategoryViewModel CategoryViewModel
+        {
+            get
+            {
+                return this.container.Resolve<CategoryViewModel>();
             }
         }
     }

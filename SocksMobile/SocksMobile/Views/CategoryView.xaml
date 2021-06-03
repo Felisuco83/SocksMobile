@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocksMobile.Views.CategoryView"
+             xmlns:local="clr-namespace:SocksMobile">
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding Products}" x:Name="socksgrid">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="2"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <ImageButton Source="{Binding image}" HeightRequest="100" WidthRequest="50"
+                                                   Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                     CommandParameter="{Binding .}" Command="{Binding BindingContext.SocksDetails
+                                                    , Source={x:Reference socksgrid}}"/>
+                        <Label Text="{Binding Product_name}" TextColor="Black" FontSize="16" 
+                                           LineBreakMode="MiddleTruncation" WidthRequest="50" Margin="0,5,0,0"/>
+                        <Label Text="{Binding Product_print}" TextColor="Gray" FontSize="14" 
+                                           LineBreakMode="MiddleTruncation" WidthRequest="50" Margin="0,-7,0,0" />
+                        <Label Text="{Binding Product_price, StringFormat='{0} $'}" Margin="0,-7,0,0" 
+                                           TextColor="#f05366" FontSize="14"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+            <!--<ListView ItemsSource="{Binding Products}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="Hola"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
