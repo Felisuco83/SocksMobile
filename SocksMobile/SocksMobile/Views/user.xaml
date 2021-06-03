@@ -20,42 +20,43 @@
             </Grid.RowDefinitions>
 
             <RelativeLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
-                <Image Source="https://ecommercesocksstorage.blob.core.windows.net/socks-blobs-container/bannerImage.jpg" 
-                  Aspect="AspectFill" HorizontalOptions="Center" HeightRequest="250"/>
-                <StackLayout TranslationY="200" Padding="10,-15,0,0">
+                <Image Source="https://coverfiles.alphacoders.com/486/48683.jpg" 
+                  Aspect="AspectFill" HorizontalOptions="Center" HeightRequest="200"/>
+                <StackLayout TranslationY="200" Padding="10,-55,0,0">
                     <Frame CornerRadius="100"
                            HeightRequest="120"
                            WidthRequest="120"
                            HorizontalOptions="Center"
                            Padding="0"
-                           IsClippedToBounds="True">
-                        <Image Source="https://w7.pngwing.com/pngs/122/453/png-transparent-computer-icons-user-profile-avatar-female-profile-heroes-head-woman.png"
+                           IsClippedToBounds="True"
+                           HasShadow="True">
+                        <Image Source="https://upload.wikimedia.org/wikipedia/commons/d/d0/Woman%27s_profile_in_bright_sun_%28Unsplash%29.jpg"
                                Aspect="AspectFill"
                                HeightRequest="250"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
                     </Frame>
                 </StackLayout>
-                <StackLayout TranslationY="200" Padding="150,15,10,5">
+                <StackLayout TranslationY="200" Padding="150,-40,10,5">
                     <StackLayout.BindingContext>
                         <viewmodels:ProfileViewModel/>
                     </StackLayout.BindingContext>
                     <!--<Label Text="{Binding User.Users_name}" TextColor="Black" FontSize="25"/>-->
-                    <Label Text="{Binding Name}" TextColor="Wheat" FontSize="25"/>
-                    <Label Text="{Binding Apellido}" TextColor="DarkBlue" FontSize="25"/>
+                    <Label Text="{Binding Name}" TextColor="White" FontSize="25"/>
+                    <Label Text="{Binding Apellido}" TextColor="Black" FontSize="25"/>
                 </StackLayout>
                 <StackLayout TranslationY="200" Padding="150,15,10,5">
                     <Label Text="{Binding Users_email}" TextColor="White" FontSize="25"/>
                 </StackLayout>
             </RelativeLayout>
 
-            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" Margin="0,70,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Text="NEW ARRIVALS" VerticalOptions="Center" Margin="20, 10, 0, 0" TextColor="Black"
+                <Label Grid.Column="0" Text="FAVORITES" VerticalOptions="Center" Margin="20, 10, 0, 0" TextColor="Black"
                        FontSize="18"/>
                 <Button Grid.Column="1" Text="VIEW ALL" Background="white" TextColor="#6270b1" HorizontalOptions="End" 
                         Margin="0, 10, 20, 0"/>

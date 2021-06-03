@@ -1,8 +1,86 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SocksMobile.Views.cart">
+             x:Class="SocksMobile.Views.cart"
+             xmlns:viewmodels="clr-namespace:SocksMobile.ViewModels"
+             xmlns:local="clr-namespace:SocksMobile"
+             xmlns:sistema="clr-namespace:System;assembly=mscorlib"
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator}, Path=CartViewModel}"
+             x:Name="PageCart">
     <ContentPage.Content>
-        <Label Text="cart"/>
-    </ContentPage.Content>
+            <StackLayout Margin="20,20,20,20">
+                <StackLayout.BindingContext>
+                    <viewmodels:CartViewModel/>
+            </StackLayout.BindingContext>
+                <ListView ItemsSource="{Binding Products}" HasUnevenRows="True">
+                    <ListView.Style>
+                        <Style TargetType="ListView">
+                            
+                        </Style>
+                    </ListView.Style>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="1*"/>
+                                            <RowDefinition Height="1*"/>
+                                            <RowDefinition Height="1*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1.5*"/>
+                                            <ColumnDefinition Width="2.5*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Grid.RowSpan="3" VerticalOptions="Center"
+                                               Source="{Binding image}" Margin="0,10,0,0"
+                                               />
+                                        <Label Text="{Binding Product_name}" FontAttributes="Bold"
+                                               VerticalOptions="CenterAndExpand"
+                                               Margin="0,10,0,0" Grid.Column="1"
+                                               LineBreakMode="MiddleTruncation"
+                                               TextTransform="Uppercase"
+                                               FontSize="18"/>
+                                        <Label Text="{Binding Product_style}"
+                                               VerticalOptions="CenterAndExpand" Grid.Row="1"
+                                               Grid.Column="1"
+                                               FontSize="15"/>
+                                        <Label Text="{Binding Product_price, StringFormat='{0} $  x 1'}"
+                                               VerticalOptions="CenterAndExpand" Grid.Row="2"
+                                               Grid.Column="1" 
+                                               FontSize="15" TextColor="#f05366"/>
+
+                                        <!-- BOTON DETALLE PRODUCTO-->
+                                    <Button Text="{Binding Product_id, StringFormat='Detalles {0}'}" BackgroundColor="#ffdad7"
+                                                Grid.Row="1" Grid.Column="2"
+                                                TextColor="Red" FontSize="10"
+                                                CommandParameter="{Binding .}"
+                                                Command="{Binding BindingContext.SocksDetails
+                                                    , Source={x:Reference PageCart}}"/>
+
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                            <Button Text="SEGUIMIENTO" Grid.Column="0"
+                            BackgroundColor="White"
+                            TextColor="Black" FontSize="16"/>
+                        <Button Text="CONFIRMAR PEDIDO" Grid.Column="1"
+                            BackgroundColor="White"
+                            TextColor="Black" FontSize="16"/>
+                    
+                </Grid>
+            </StackLayout>
+        </ContentPage.Content>
 </ContentPage>
+
