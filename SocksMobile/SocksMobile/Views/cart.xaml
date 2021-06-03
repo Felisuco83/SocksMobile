@@ -3,7 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SocksMobile.Views.cart"
              xmlns:viewmodels="clr-namespace:SocksMobile.ViewModels"
-             xmlns:sistema="clr-namespace:System;assembly=mscorlib">
+             xmlns:local="clr-namespace:SocksMobile"
+             xmlns:sistema="clr-namespace:System;assembly=mscorlib"
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator}, Path=CartViewModel}"
+             x:Name="PageCart">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout.BindingContext>
@@ -17,7 +20,12 @@
                             <ViewCell>
                                 <StackLayout Orientation="Vertical" BackgroundColor="Black" 
                                              >
-                                    <StackLayout BackgroundColor="Gray">
+
+                                    <Button Text="{Binding Product_id}" BackgroundColor="Salmon" TextColor="Red"
+                                            CommandParameter="{Binding .}"
+                                             Command="{Binding BindingContext.SocksDetails
+                                                    , Source={x:Reference PageCart}}"/>
+                                    <!--<StackLayout BackgroundColor="Gray">
                                         <Label Text="Numero de pedido" TextColor="White"/>
                                         <Label Text="Fecha Pepido" TextColor="White"/>
                                     </StackLayout>
@@ -35,7 +43,7 @@
                                         <Label Text="Importe" TextColor="White"/>
                                         <Button Text="SEGUIMIENTO" BackgroundColor="Salmon" TextColor="Red"/>
                                         <Button Text="CONFIRMAR PEDIDO RECIBIDO" BackgroundColor="Red" TextColor="Salmon"/>
-                                    </StackLayout>
+                                    </StackLayout>-->
                                     <!--OBTENCION DE DATOS-->
                                     <!--<Label Text="{Binding Product_id, StringFormat='N. de Pedido: {0}'}"
                                            FontSize="23"/>
