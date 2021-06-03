@@ -6,7 +6,7 @@
              xmlns:sistema="clr-namespace:System;assembly=mscorlib">
     
     <ContentPage.Content>
-            <StackLayout Margin="20,20,20,20">
+            <StackLayout Margin="20,0,20,20">
                 <StackLayout.BindingContext>
                     <viewmodels:CartViewModel/>
             </StackLayout.BindingContext>

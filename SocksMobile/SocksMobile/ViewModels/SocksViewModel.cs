@@ -87,7 +87,7 @@ namespace SocksMobile.ViewModels
             get
             {
 
-                return new Command((socks) =>
+                return new Command(async(socks) => 
                 {
                     //RECIBIMOS LOS CALCETINES Y LO MANDAMOS A 
                     //OTRA VISTA/VIEWMODEL
@@ -97,8 +97,7 @@ namespace SocksMobile.ViewModels
                     DetalleProductos view = new DetalleProductos();
                     view.BindingContext = viewmodel;
                     viewmodel.Product = socks as Product_Complete;
-                    Application.Current.MainPage.Navigation.PushModalAsync
-                    (view);
+                    await Application.Current.MainPage.Navigation.PushModalAsync(view);
                 });
             }
         }
