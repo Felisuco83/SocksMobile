@@ -5,16 +5,15 @@
     x:Class="SocksMobile.Views.Categories"
     xmlns:viewmodels="clr-namespace:SocksMobile.ViewModels"
     xmlns:local="clr-namespace:SocksMobile">
-    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" x:Name="categoriesgrid"
+          Margin="20,20,20,20" BindingContext="{Binding Source={x:Static local:App.ServiceLocator}, Path=CategoriesViewModel}">
         <Grid.Margin>
             <OnPlatform x:TypeArguments="Thickness">
                 <On Platform="IOS" Value="0,0,0,0"/>
                 <On Platform="Android" Value="20,20,20,20"/>
             </OnPlatform>
         </Grid.Margin>
-    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" x:Name="categoriesgrid"
-          Margin="20,20,20,20" BindingContext="{Binding Source={x:Static local:App.ServiceLocator}, Path=CategoriesViewModel}">
-         <Grid.RowDefinitions>
+        <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
