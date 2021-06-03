@@ -50,8 +50,7 @@ namespace SocksMobile.ViewModels
         public async Task LoadSocks()
         {
             List<Product_Complete> lista = await this.ServiceSocks.GetProductCompleteAsync();
-            foreach (Product_Complete product in lista)
-            {
+            foreach (Product_Complete product in lista) {
                 product.image = "https://ecommercesocksstorage.blob.core.windows.net/socks-blobs-container/Product_" + product.Product_id + ".jpg";
             }
             //this.Products =

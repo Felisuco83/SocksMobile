@@ -8,60 +8,79 @@
              BindingContext="{Binding Source={x:Static local:App.ServiceLocator}, Path=CartViewModel}"
              x:Name="PageCart">
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout.BindingContext>
-                <viewmodels:CartViewModel/>
+            <StackLayout Margin="20,20,20,20">
+                <StackLayout.BindingContext>
+                    <viewmodels:CartViewModel/>
             </StackLayout.BindingContext>
-
-            <ScrollView Orientation="Vertical">
-                <ListView ItemsSource="{Binding Products}">
+                <ListView ItemsSource="{Binding Products}" HasUnevenRows="True">
+                    <ListView.Style>
+                        <Style TargetType="ListView">
+                            
+                        </Style>
+                    </ListView.Style>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Orientation="Vertical" BackgroundColor="Black" 
-                                             >
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="1*"/>
+                                            <RowDefinition Height="1*"/>
+                                            <RowDefinition Height="1*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1.5*"/>
+                                            <ColumnDefinition Width="2.5*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                        </Grid.ColumnDefinitions>
 
-                                    <Button Text="{Binding Product_id}" BackgroundColor="Salmon" TextColor="Red"
-                                            CommandParameter="{Binding .}"
-                                             Command="{Binding BindingContext.SocksDetails
+                                        <Image Grid.RowSpan="3" VerticalOptions="Center"
+                                               Source="{Binding image}" Margin="0,10,0,0"
+                                               />
+                                        <Label Text="{Binding Product_name}" FontAttributes="Bold"
+                                               VerticalOptions="CenterAndExpand"
+                                               Margin="0,10,0,0" Grid.Column="1"
+                                               LineBreakMode="MiddleTruncation"
+                                               TextTransform="Uppercase"
+                                               FontSize="18"/>
+                                        <Label Text="{Binding Product_style}"
+                                               VerticalOptions="CenterAndExpand" Grid.Row="1"
+                                               Grid.Column="1"
+                                               FontSize="15"/>
+                                        <Label Text="{Binding Product_price, StringFormat='{0} $  x 1'}"
+                                               VerticalOptions="CenterAndExpand" Grid.Row="2"
+                                               Grid.Column="1" 
+                                               FontSize="15" TextColor="#f05366"/>
+
+                                        <!-- BOTON DETALLE PRODUCTO-->
+                                    <Button Text="{Binding Product_id, StringFormat='Detalles {0}'}" BackgroundColor="#ffdad7"
+                                                Grid.Row="1" Grid.Column="2"
+                                                TextColor="Red" FontSize="10"
+                                                CommandParameter="{Binding .}"
+                                                Command="{Binding BindingContext.SocksDetails
                                                     , Source={x:Reference PageCart}}"/>
-                                    <!--<StackLayout BackgroundColor="Gray">
-                                        <Label Text="Numero de pedido" TextColor="White"/>
-                                        <Label Text="Fecha Pepido" TextColor="White"/>
-                                    </StackLayout>
-                                    <StackLayout BackgroundColor="Green">
-                                        <Image Source="{Binding image}"
-                                               WidthRequest="100"
-                                               HeightRequest="100"/>
-                                        <StackLayout BackgroundColor="Blue">
-                                            <Label Text="Nombre del pedido" TextColor="White"/>
-                                            <Label Text="Dinero x Cantidad" TextColor="White"/>
-                                        </StackLayout>
-                                    </StackLayout>
-                                    <StackLayout BackgroundColor="Gray">
-                                            <Label Text="Cantidad" TextColor="White"/>
-                                        <Label Text="Importe" TextColor="White"/>
-                                        <Button Text="SEGUIMIENTO" BackgroundColor="Salmon" TextColor="Red"/>
-                                        <Button Text="CONFIRMAR PEDIDO RECIBIDO" BackgroundColor="Red" TextColor="Salmon"/>
-                                    </StackLayout>-->
-                                    <!--OBTENCION DE DATOS-->
-                                    <!--<Label Text="{Binding Product_id, StringFormat='N. de Pedido: {0}'}"
-                                           FontSize="23"/>
-                                    <Label Text="{Binding Date, StringFormat='Fecha Pedido: {0:MMMM dd, yyyy}'}"
-                                           FontSize="23"/>
-                                    <Image Source="{Binding image}" 
-                                               Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                                    <Label Text="{Binding Product_name}" TextColor="Black" FontSize="16" />
-                                    <Label Text="{Binding Product_price, StringFormat='{0} $'}" Margin="0,-7,0,0" 
-                                           TextColor="#f05366" FontSize="14"/>-->
-                                </StackLayout>
 
+                                    </Grid>
+                                </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </ScrollView>
 
-        </StackLayout>
-    </ContentPage.Content>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                            <Button Text="SEGUIMIENTO" Grid.Column="0"
+                            BackgroundColor="White"
+                            TextColor="Black" FontSize="16"/>
+                        <Button Text="CONFIRMAR PEDIDO" Grid.Column="1"
+                            BackgroundColor="White"
+                            TextColor="Black" FontSize="16"/>
+                    
+                </Grid>
+            </StackLayout>
+        </ContentPage.Content>
 </ContentPage>
+
